@@ -14,7 +14,7 @@ A major benefit of studying the source for JetBrains platform is that you will p
 
 The downside is that the product is complex and being highly extensible through plugins the implementation can be spread all over. The hardest part is finding the right bread crumb trail to follow. This is where a few tricks from someone who has experience in the trenches can speed things up for you. 
 
-I will take you through the steps I used to figure out how and where to add functionality you can find in the GUI of IDEA.
+I will take you through the steps I used to figure out how and where to add functionality of "Collapse by default" options that I could see in the GUI of IDEA.
 
 ### Pre-requisites
 
@@ -42,7 +42,7 @@ Again, pay dirt `JavaCodeFoldingOptionsProvider` sounds like the class that hand
 
 ![Blog 1 found bundle key](https://github.com/vsch/vladsch-blog/raw/master/images/Blog_1_found_bundle_key.png)
                             
-Now what the hell are those screaming snake case ids in strings? IntelliJ uses a lot of Bean introspection so I suspect that it is a property of a settings provider.  Well, search in path to the rescue:
+Now what the hell are those screaming snake case ids in strings? IntelliJ uses reflection API a lot so I suspect that it is a property of a settings provider.  Well, search in path to the rescue:
 
 ![Blog 1 find property](https://github.com/vsch/vladsch-blog/raw/master/images/Blog_1_find_property.png)
 
