@@ -1,4 +1,4 @@
-## Finding the best plugin example source code
+## The best IntelliJ plugin example source code
 
 I always found that the best and most accurate source of information about any program is its source code. It is not the easiest to absorb, at first, but it is down right the most accurate. Comments can be out of date and cannot be trusted. Who updates them anyway? Books are only valid for the version of code for which they were written. The source code is the final arbiter of truth about any program. After all, it is the program. 
 
@@ -12,17 +12,17 @@ The beauty of working with [intellij-community] source base is that you are actu
 
 A major benefit of studying the source for JetBrains platform is that you will probably learn a lot of elegant solutions to complex problems. This could not be said for the majority of programs that I had to work on and is a major motivating factor when I have to dive a little deeper into the code than I originally envisioned.
 
-The downside is that the product is complex and being highly extensible through plugins the implementation can be spread all over. The hardest part is finding the right bread crumb trail to follow. Here I will take you through the process I used to figure out how and where to add "collapse by default" options for markdown elements. Writing about it took much longer than to actually do it.     
+The downside is that the product is complex and being highly extensible through plugins the implementation can be spread all over. The hardest part is finding the right bread crumb trail to follow. This is where a few tricks from someone who has experience in the trenches can speed things up for you. 
 
-This is where a few tricks from someone who has experience in the trenches can speed things up for you. 
+I will take you through the steps I used to figure out how and where to add functionality you can find in the GUI of IDEA.
 
 ### Pre-requisites
 
-I am assuming you have the [IntelliJ IDEA] installed and have gotten to the point where you can build your own working copy of [intellij-community] sources. 
+I am assuming you have the [IntelliJ IDEA] installed and have gotten to the point where you can search the source, if not debug your own copy, of [intellij-community]. 
 
 ### Goal: Implement `collapse by default` configuration
 
-I wanted to implement user configurable "Collapse by default" settings that are available for Java and other custom languages in settings/preferences under <kbd>Editor > General > Code Folding</kbd> 
+I wanted to implement user configurable "Collapse by default" settings for markdown elements in my plugin. These are available for Java and other custom languages in settings/preferences under <kbd>Editor > General > Code Folding</kbd> 
 
 ![Blog 1 settings](https://github.com/vsch/vladsch-blog/raw/master/images/Blog_1_settings.png)
 
@@ -34,7 +34,7 @@ Hit find and keep your fingers crossed. You can also use the preview tab but I p
 
 ![Blog 1 found I18n](https://github.com/vsch/vladsch-blog/raw/master/images/Blog_1_found_I18n.png)
 
-Now we repeat the process but this time searching for the message key `checkbox.collapse.i18n.messages` 
+Now we repeat the process but this time searching for the key `checkbox.collapse.i18n.messages` 
 
 ![Blog 1 find bundle key](https://github.com/vsch/vladsch-blog/raw/master/images/Blog_1_find_bundle_key.png)
 
