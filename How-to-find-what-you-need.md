@@ -41,7 +41,7 @@ Now we repeat the process but this time searching for the message key `checkbox.
 Again, pay dirt `JavaCodeFoldingOptionsProvider` sounds like the class that handles customization of folding settings. In general it will be a provider for settings or a handler for actions.  
 
 ![Blog 1 found bundle key](images/Blog_1_found_bundle_key.png)
-
+                            
 Now what the hell are those screaming snake case ids in strings? IntelliJ uses a lot of Bean introspection so I suspect that it is a property of a settings provider.  Well, search in path to the rescue:
 
 ![Blog 1 find property](images/Blog_1_find_property.png)
