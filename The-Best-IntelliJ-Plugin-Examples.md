@@ -42,7 +42,7 @@ I was on a lucky streak: `JavaCodeFoldingSettingsBase` looks perfect for what we
 
 Now, I already know that both the `JavaCodeFoldingSettingsBase` and `JavaCodeFoldingOptionsProvider` need to have extension entries in the plugin.xml but which ones? Easiest part of the search. Just put your cursor on the identifier and use the Navigate to Declaration. For `JavaCodeFoldingSettingsBase` you are first taken to abstract `JavaCodeFoldingSettings` class and from there to the `IdeaPlugin.xml` file's entry for the service provider.
 
-![Blog found plugin service](https://github.com/vsch/vladsch-blog/raw/master/images/Blog_found_plugin_service.png)
+![Blog found plugin service](https://github.com/vsch/vladsch-blog/raw/master/images/Blog_1_found_plugin_service.png)
 
 And the same procedure to find the entry for `JavaCodeFoldingSettingsBase`:
 
