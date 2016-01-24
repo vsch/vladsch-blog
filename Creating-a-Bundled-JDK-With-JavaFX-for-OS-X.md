@@ -4,8 +4,8 @@ JetBrains products for the Mac come with a bundled Open JDK which has much bette
 
 I used the Oracle JDK for months and could not figure out why my main IDE text looks so washed out when some of the debug configurations that I used were crisp and high contrast, until I realized it was the difference between the bundled open JDK and the Oracle distributed JDK that was the cause of the difference. 
 
-![Blog 2 Bundled Jdk](images/Blog_2_bundled_jdk.png)
-![Blog 2 Oracle Jdk](images/Blog_2_oracle_jdk.png)
+![Blog 2 Bundled Jdk](https://github.com/vsch/vladsch-blog/raw/master/images/Blog_2_bundled_jdk.png)
+![Blog 2 Oracle Jdk](https://github.com/vsch/vladsch-blog/raw/master/images/Blog_2_oracle_jdk.png)
 
 Once I figured it out I switched to the bundled JDK and lived with the lack of JavaFX Preview until I ported the Markdown Support solution of an overlay JavaFX library.  
 
