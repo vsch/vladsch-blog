@@ -5,11 +5,12 @@ JetBrains products for the Mac come with a bundled Open JDK which has much bette
 I used the Oracle JDK for months and could not figure out why my main IDE text looks so washed out when some of the debug configurations that I used were crisp and high contrast, until I realized it was the difference between the bundled open JDK and the Oracle distributed JDK that was the cause of the difference. 
 
 ![Blog 2 Bundled Jdk](https://github.com/vsch/vladsch-blog/raw/master/images/Blog_2_bundled_jdk.png)
+
 ![Blog 2 Oracle Jdk](https://github.com/vsch/vladsch-blog/raw/master/images/Blog_2_oracle_jdk.png)
 
 Once I figured it out I switched to the bundled JDK and lived with the lack of JavaFX Preview until I ported the Markdown Support solution of an overlay JavaFX library.  
 
-The overlay JavaFX zip which is used in Markdown Support plugin and idea-multimarkdown plugin, adds JavaFX WebView preview when running on the bundled JDK on the Mac but it has limitations. Mainly, the media support libraries are not included and even if they were they would not load except with the custom class loader used to load the overlay JavaFX library and when JavaFX/WebView is loaded by a custom class loader it fails to paint scroll bars in the rendered page. 
+The overlay JavaFX zip which is used in Markdown Support plugin and idea-multimarkdown plugin, adds JavaFX WebView preview when running on the bundled JDK on the Mac but it has limitations. Mainly, the media support libraries are not included and even if they were they would not load with the custom class loader used to load the overlay JavaFX library. Also when JavaFX/WebView classes are loaded by a custom class loader it fails to paint scroll bars in the rendered page. 
 
 The lack of media libraries causes the overlay JavaFX WebView to crash when an SVG image is embedded in the HTML. The workaround used in Markdown Support and duplicated in idea-multimarkdown is to rename all SVG images so that they are not resolved by WebView preventing a crash, but also preventing them from being displayed.
 
