@@ -30,7 +30,7 @@ To create one for yourself you need to:
 
 ```shell
 # 1. copy bundled JDK as a jdk under /Library/Java
-sudo cp -fr /Applications/"PhpStorm EAP.app"/Contents/jre/jdk /Library/Java/JavaVirtualMachines/openjdk1.8.0_40b119
+sudo cp -R /Applications/"PhpStorm EAP.app"/Contents/jre/jdk /Library/Java/JavaVirtualMachines/openjdk1.8.0_40b119
 
 # 2. download the javafx sdk overlay
 sudo curl --location http://download.jetbrains.com/idea/open-jfx/javafx-sdk-overlay.zip --output /Library/Java/JavaVirtualMachines/openjdk1.8.0_40b119/javafx-sdk-overlay.zip
@@ -46,7 +46,7 @@ sudo cp /Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/
 sudo cp /Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/jre/lib/libjfxmedia_qtkit.dylib /Library/Java/JavaVirtualMachines/openjdk1.8.0_40b119/Contents/Home/jre/lib
 ```
 
-Now point your application to the newly created JDK and try it out. See idea-multimarkdown wiki [Changing Boot JDK]
+Now point your JetBrains application's boot JDK to the newly created JDK and try it out. See idea-multimarkdown wiki [Changing Boot JDK]
 
 
 [Changing Boot JDK]: http://github.com/vsch/idea-multimarkdown/wiki/Changing-Boot-JDK
