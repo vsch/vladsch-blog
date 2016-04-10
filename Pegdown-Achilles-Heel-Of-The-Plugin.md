@@ -2,7 +2,7 @@
 
 MultiMarkdown plugin uses the [pegdown] markdown parser. This was inherited from the original 
 [idea-markdown] plugin and at the time it was the most flexible and complete [Markdown] 
-implementation that was available.
+implementation that was available. 
 
 I have felt from the beginning that I would need to replace the parser due to pegdown's 
 limitations originating from its implementation. It is a recursive parser with many exponential 
@@ -37,12 +37,12 @@ make sure that whatever parser I used would continue to be actively developed in
 
 In this respect the [commonmark-java] appeared to be the winner because [intellij-markdown] is 
 currently only supported by its original developer. At the same time using a parser already well 
-integrated with the JetBrains OpenAPI has its advantages as well as having one written in [Kotlin]. 
-[commonmark-java] also appeared to be easier to extend. I found its implementation and extension 
-architecture easier to understand. This too is a big advantage since I would need to add all the 
-missing extension that pegdown had or ones that I added to pegdown over the last year. At the 
-same time this parser lacks tracking of the source position in its AST that I would definitely 
-need to add. Decisions, decisions, decisions. 
+integrated with the JetBrains OpenAPI has its advantages as well as having one written in 
+[Kotlin]. [commonmark-java] also appeared to be easier to extend. I found its implementation and 
+extension architecture easier to understand. This too is a big advantage since I would need to 
+add all the missing extension that pegdown had or ones that I added to pegdown over the last 
+year. At the same time this parser lacks tracking of the source position in its AST that I would 
+definitely need to add. Decisions, decisions, decisions. 
 
 I was stuck and not able to move forward. I did not want to commit to a major rewriting effort 
 of the plugin without having some solid data. Superficial review of the code and perceptions 
@@ -57,10 +57,11 @@ I used the simple code from [intellij-markdown] test suite that does a loop of 1
 the warm up and then computes an average of 100 runs to arrive at a result. The results blew me 
 away: 
 
-| File              | pegdown-markdown | intellij-markdown | commonmark-java |  
+| File              | pegdown-markdown | intellij-markdown | commonmark-java |
 |-------------------|-----------------:|------------------:|----------------:|
 | VERSION.md        |      51.172913ms |        6.886450ms |     1.7238140ms |
 | commonMarkSpec.md |     685.310908ms |      647.420365ms |     42.146776ms |
+| spec.txt          |     316.491533ms |       35.156909ms |      8.863662ms |
 | hang-pegdown.md   |     673.086523ms |        0.296050ms |      0.086940ms |
 | hang-pegdown2.md  |    1387.808977ms |        0.294905ms |      0.085369ms |
 
@@ -70,12 +71,14 @@ Ratio of performances is stunning:
 |-------------------|-----------------:|------------------:|----------------:|
 | VERSION.md        |            29.69 |              3.99 |            1.00 |
 | commonMarkSpec.md |            16.26 |             15.36 |            1.00 |
+| spec.txt          |            35.71 |              3.97 |            1.00 |
 | hang-pegdown.md   |          7741.97 |              3.41 |            1.00 |
 | hang-pegdown2.md  |         16256.59 |              3.45 |            1.00 |
 
 * VERSION.md is the version log file I use for idea-multimarkdown 
 * commonMarkSpec.md is a 33k line file used in [intellij-markdown] test suite for performance 
   evaluation. 
+* spec.txt commonmark spec markdown file in the [commonmark-java] project
 * hang-pegdown.md is a file containing a single line of 17 characters `[[[[[[[[[[[[[[[[[` which 
   causes pegdown to go into an hyper-exponential parse time. 
 * a file containing a single line of 18 characters `[[[[[[[[[[[[[[[[[[` which causes pegdown to 
@@ -90,6 +93,8 @@ parser available for release.
 
 I look forward to having a better performing parser in the plugin. 
 
+* * * 
+Revision: 2016/04/08 - add spec.txt performance results to tables 
 
 [Kotlin]: http://kotlinlang.org
 [Markdown]: https://daringfireball.net/projects/markdown
@@ -97,4 +102,3 @@ I look forward to having a better performing parser in the plugin.
 [pegdown]: http://pegdown.org
 [intellij-markdown]: https://github.com/valich/intellij-markdown 
 [commonmark-java]: https://github.com/atlassian/commonmark-java
-
