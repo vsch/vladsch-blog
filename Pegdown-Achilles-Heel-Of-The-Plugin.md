@@ -64,6 +64,7 @@ away:
 | spec.txt          |     316.491533ms |       35.156909ms |      8.863662ms |
 | hang-pegdown.md   |     673.086523ms |        0.296050ms |      0.086940ms |
 | hang-pegdown2.md  |    1387.808977ms |        0.294905ms |      0.085369ms |
+| wrap.md           |      95.332715ms |       17.806722ms |      4.980221ms |
 
 Ratio of performances is stunning:
 
@@ -74,15 +75,20 @@ Ratio of performances is stunning:
 | spec.txt          |            35.71 |              3.97 |            1.00 |
 | hang-pegdown.md   |          7741.97 |              3.41 |            1.00 |
 | hang-pegdown2.md  |         16256.59 |              3.45 |            1.00 |
+| wrap.md           |            19.14 |              3.58 |            1.00 |
 
-* VERSION.md is the version log file I use for idea-multimarkdown 
-* commonMarkSpec.md is a 33k line file used in [intellij-markdown] test suite for performance 
+* [VERSION.md] is the version log file I use for idea-multimarkdown 
+* [commonMarkSpec.md] is a 33k line file used in [intellij-markdown] test suite for performance 
   evaluation. 
-* spec.txt commonmark spec markdown file in the [commonmark-java] project
-* hang-pegdown.md is a file containing a single line of 17 characters `[[[[[[[[[[[[[[[[[` which 
+* [spec.txt] commonmark spec markdown file in the [commonmark-java] project
+* [hang-pegdown.md] is a file containing a single line of 17 characters `[[[[[[[[[[[[[[[[[` which 
   causes pegdown to go into an hyper-exponential parse time. 
-* a file containing a single line of 18 characters `[[[[[[[[[[[[[[[[[[` which causes pegdown to 
-  go into an hyper-exponential parse time. 
+* [hang-pegdown2.md] a file containing a single line of 18 characters `[[[[[[[[[[[[[[[[[[` which
+  causes pegdown to go into an hyper-exponential parse time.
+* [wrap.md] is a file I was using to test wrap on typing performance only to discover that it has
+  nothing to do with the wrap on typing code when 0.1 seconds is taken by pegdown to parse the
+  file. In the plugin the parsing may happen more than once: syntax highlighter pass, psi tree 
+  building pass, external annotator.
 
 This is not an exhaustive performance test but combined with other advantages of 
 [commonmark-java] over [intellij-markdown] I have enough data to convince me to make 
@@ -94,7 +100,10 @@ parser available for release.
 I look forward to having a better performing parser in the plugin. 
 
 * * * 
-Revision: 2016/04/08 - add spec.txt performance results to tables 
+Revision: 2016/04/08 - add spec.txt performance results to tables  
+
+Revision: 2016/04/22 - add wrap.md performance results to tables and links to files used in
+comparison.
 
 [Kotlin]: http://kotlinlang.org
 [Markdown]: https://daringfireball.net/projects/markdown
@@ -102,3 +111,12 @@ Revision: 2016/04/08 - add spec.txt performance results to tables
 [pegdown]: http://pegdown.org
 [intellij-markdown]: https://github.com/valich/intellij-markdown 
 [commonmark-java]: https://github.com/atlassian/commonmark-java
+
+[commonMarkSpec.md]: https://github.com/vsch/idea-multimarkdown/blob/master/test/data/performance/commonMarkSpec.md
+[hang-pegdown.md]: https://github.com/vsch/idea-multimarkdown/blob/master/test/data/performance/hang-pegdown.md
+[hang-pegdown2.md]: https://github.com/vsch/idea-multimarkdown/blob/master/test/data/performance/hang-pegdown2.md
+[spec.txt]: https://github.com/vsch/idea-multimarkdown/blob/master/test/data/performance/spec.md
+[table.md]: https://github.com/vsch/idea-multimarkdown/blob/master/test/data/performance/table.md
+[VERSION.md]: https://github.com/vsch/idea-multimarkdown/blob/master/test/data/performance/VERSION.md
+[wrap.md]: https://github.com/vsch/idea-multimarkdown/blob/master/test/data/performance/wrap.md
+        
