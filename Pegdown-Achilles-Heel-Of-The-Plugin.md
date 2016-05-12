@@ -1,6 +1,6 @@
-## Pegdown - Achilles heel of the MultiMarkdown plugin 
+## Pegdown - Achilles heel of the Markdown Navigator plugin 
 
-MultiMarkdown plugin uses the [pegdown] markdown parser. This was inherited from the original 
+Markdown Navigator plugin uses the [pegdown] markdown parser. This was inherited from the original 
 [idea-markdown] plugin and at the time it was the most flexible and complete [Markdown] 
 implementation that was available. 
 
@@ -77,7 +77,7 @@ Ratio of performances is stunning:
 | hang-pegdown2.md  |         16256.59 |              3.45 |            1.00 |
 | wrap.md           |            19.14 |              3.58 |            1.00 |
 
-* [VERSION.md] is the version log file I use for idea-multimarkdown 
+* [VERSION.md] is the version log file I use for Markdown Navigator 
 * [commonMarkSpec.md] is a 33k line file used in [intellij-markdown] test suite for performance 
   evaluation. 
 * [spec.txt] commonmark spec markdown file in the [commonmark-java] project
